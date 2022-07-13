@@ -6,9 +6,13 @@ const {
   deleteTicket,
   updateTicket,
 } = require("../controllers/ticketController");
-const router = express.Router();
+const router = express.Router({ mergeParams: true });
 
 const { protect } = require("../middleware/auth");
+
+const noteRouter = require("./noteRoute");
+
+router.use("/:ticketId/notes", noteRouter);
 
 router.route("/").get(protect, getTickets).post(protect, createTicket);
 router
