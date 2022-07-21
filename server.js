@@ -15,6 +15,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.use("/", require("./routes/miscRoutes"));
 app.use("/api-docs/", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use("/api/users/", require("./routes/userRoutes"));
 app.use("/api/tickets/", require("./routes/ticketRoutes"));
