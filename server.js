@@ -9,7 +9,7 @@ const swaggerDocument = YAML.load("./swagger.yml");
 
 const PORT = process.env.PORT || 5000;
 
-// connectDB();
+connectDB();
 const app = express();
 
 app.use(express.json());

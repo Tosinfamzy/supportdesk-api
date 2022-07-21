@@ -56,3 +56,56 @@ paths:
                     type: string
         "400":
           description: Invalid user data
+  /login:
+    post:
+      summary: Login in a user
+      required: true
+
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+
+      responses:
+        "200":
+          description: returns created user.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  _id:
+                    type: string
+                  name:
+                    type: string
+                  email:
+                    type: string
+                  token:
+                    type: string
+        "400":
+          description: Invalid credentials
+  /me:
+    get:
+      summary: Get current User
+      security:
+        - BearerAuth: []
+      responses:
+        "200":
+          description: returns created user.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  email:
+                    type: string
+                  name:
+                    type: string
