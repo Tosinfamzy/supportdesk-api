@@ -1,0 +1,58 @@
+openapi: 3.0.0
+info:
+  title: Support Desk API
+  description: Backend api for support desk app
+  version: 0.0.1
+
+servers:
+  - url: http://localhost:5001/api
+    description: Localhost
+  - url: https://tosin-supportdesk.herokuapp.com/api
+    description: Production version
+
+components:
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    BearerAuth:
+      type: http
+      scheme: bearer
+
+paths:
+  /users:
+    post:
+      summary: Add a new user.
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                password:
+                  type: string
+
+      responses:
+        "200":
+          description: returns created user.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  _id:
+                    type: string
+                  name:
+                    type: string
+                  email:
+                    type: string
+                  token:
+                    type: string
+        "400":
+          description: Invalid user data
