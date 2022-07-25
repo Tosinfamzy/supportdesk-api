@@ -22,6 +22,8 @@ components:
 paths:
   /users:
     post:
+      tags:
+        - Users
       summary: Add a new user.
 
       requestBody:
@@ -56,8 +58,10 @@ paths:
                     type: string
         "400":
           description: Invalid user data
-  /login:
+  /users/login:
     post:
+      tags:
+        - Users
       summary: Login in a user
       required: true
 
@@ -90,8 +94,10 @@ paths:
                     type: string
         "400":
           description: Invalid credentials
-  /me:
+  /users/me:
     get:
+      tags:
+        - Users
       summary: Get current User
       security:
         - BearerAuth: []
