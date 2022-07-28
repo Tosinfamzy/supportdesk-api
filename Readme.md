@@ -9,4 +9,4 @@ npm run dev
 
 ## Documentation
 
-[Production version](https://tosin-supportdesk.herokuapp.com/) | [localhost](http://localhost:5001/api-docs)
+[Production](https://tosin-supportdesk.herokuapp.com/) | [localhost](http://localhost:5001/api-docs)
