@@ -124,9 +124,9 @@ paths:
         - BearerAuth: []
       responses:
         "200":
-          description: returns created user.
+          description: returns created ticket.
         "401":
-          description: User not Found
+          description: Ticket not Found
     post:
       tags:
         - Tickets
@@ -161,4 +161,60 @@ paths:
                     type: string
 
         "401":
+          description: Ticket not found
+
+  /tickets/{id}:
+    get:
+      tags:
+        - Tickets
+      summary: Get Single Ticket
+      security:
+        - BearerAuth: []
+      responses:
+        "200":
+          description: OK.
+        "401":
+          description: Ticket not Found
+    put:
+      tags:
+        - Tickets
+      summary: Update Single Ticket
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          description: ticket Id
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        "200":
+          description: OK.
+        "401":
+          description: User not Found
+        "404":
+          description: Ticket not found
+
+    delete:
+      tags:
+        - Tickets
+      summary: Delete Single Ticket
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          description: ticket Id
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        "200":
+          description: OK.
+        "401":
+          description: User not Found
+        "404":
           description: Ticket not found
